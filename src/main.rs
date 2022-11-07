@@ -2,7 +2,6 @@ use std::fs::File;
 use std::io::BufRead;
 use std::io::BufReader;
 use std::path::Path;
-use differ::{Differ, Tag};
 
 fn main() {
     let file_a = File::open(Path::new("md5sums_1.txt")).unwrap();
@@ -14,6 +13,8 @@ fn main() {
     let lines_a: Vec<String> = reader_a.lines().collect::<Result<_, _>>().unwrap();
     let lines_b: Vec<String> = reader_b.lines().collect::<Result<_, _>>().unwrap();
 
+    print!("Checksum A");
     print!("{:?}",lines_a);
+    print!("Checksum B");
     print!("{:?}",lines_b);
 }
